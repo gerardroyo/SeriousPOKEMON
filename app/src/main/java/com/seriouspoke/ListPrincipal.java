@@ -13,6 +13,12 @@ import androidx.appcompat.app.AppCompatActivity;
 
 public class ListPrincipal extends AppCompatActivity {
 
+    private cPokimon[] Pokemons =
+            new cPokimon[] {
+                    new cPokimon("001", "Treecko", "Planta", ""),
+                    new cPokimon("002", "Grovyle", "Planta", "")
+            };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -24,9 +30,8 @@ public class ListPrincipal extends AppCompatActivity {
         // Mostrem el botó enrera que cal capturar en l'envent onOptionsItemSelected
         //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-
         // Construim l'adaptador utilitzant un layout per defecte de Android.
-        AdaptadorAmigos adaptador = new AdaptadorAmigos(this, Amigos);
+        AdaptadorPokemons adaptador = new AdaptadorPokemons(this, Pokemons);
 
         // Assignem al listview l'adaptador creat
         ListView lst = (ListView)findViewById(R.id.listCustom);
@@ -36,26 +41,29 @@ public class ListPrincipal extends AppCompatActivity {
 
 }
 
-class AdaptadorAmigos extends ArrayAdapter<cPokimon> {
+class AdaptadorPokemons extends ArrayAdapter<cPokimon> {
 
-    public AdaptadorAmigos(Context context, cPokimon[] datos) {
-        super(context, R.layout.layout_amigo, datos);
+    public AdaptadorPokemons(Context context, cPokimon[] datos) {
+        super(context, R.layout.activity_lista_principal, datos);
     }
 
     public View getView(int position, View convertView, ViewGroup parent) {
         LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.layout_amigo, null);
+        View item = inflater.inflate(R.layout.activity_lista_principal, null);
 
-        cAmigo amigo = (cAmigo) getItem(position);
+        cPokimon pokemon = (cPokimon) getItem(position);
 
-        TextView edt = (TextView)item.findViewById(R.id.edtNombre);
-        edt.setText(amigo.getNombre());
+        TextView tv = (TextView)item.findViewById(R.id.tvNumPokedex);
+        tv.setText(pokemon.getNumPokedex());
 
-        edt = (TextView)item.findViewById(R.id.edtApellidos);
-        edt.setText(amigo.getApellidos());
+        item.findViewById(R.id.tvNombre);
+        tv.setText(pokemon.getNombre());
 
-        edt = (TextView)item.findViewById(R.id.edtTelefono);
-        edt.setText(amigo.getTelefono());
+        tv = (TextView)item.findViewById(R.id.tvTipo1);
+        tv.setText(pokemon.getTipo1());
+
+        tv = (TextView)item.findViewById(R.id.tvTipo2);
+        tv.setText(pokemon.getTipo2());
         return(item);
     }
 }
