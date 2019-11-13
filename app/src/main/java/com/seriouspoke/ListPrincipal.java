@@ -1,6 +1,7 @@
 package com.seriouspoke;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.graphics.drawable.BitmapDrawable;
 import android.os.Bundle;
@@ -11,6 +12,7 @@ import android.widget.ArrayAdapter;
 import android.widget.ImageView;
 import android.widget.ListView;
 import android.widget.TextView;
+import androidx.appcompat.app.ActionBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
@@ -39,20 +41,7 @@ public class ListPrincipal extends AppCompatActivity {
                     new cPokimon("019", "Lotad", "Agua", "Planta"),
                     new cPokimon("020", "Lombre", "Agua", "Planta"),
                     new cPokimon("021", "Ludicolo", "Agua", "Planta"),
-                    new cPokimon("022", "Seedot", "Planta", ""),
-                    new cPokimon("023", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("024", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("025", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("026", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("027", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("028", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("029", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("030", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("031", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("032", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("033", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("034", "Swampert", "Agua", "Tierra"),
-                    new cPokimon("035", "Swampert", "Agua", "Tierra")
+                    new cPokimon("022", "Seedot", "Planta", "")
             };
 
     @Override
@@ -76,160 +65,97 @@ public class ListPrincipal extends AppCompatActivity {
 
     }
 
-}
 
-class AdaptadorPokemons extends ArrayAdapter<cPokimon> {
 
-    public AdaptadorPokemons(Context context, cPokimon[] datos) {
-        super(context, R.layout.activity_mostrar_lista, datos);
-    }
+    class AdaptadorPokemons extends ArrayAdapter<cPokimon> {
 
-    public View getView(int position, View convertView, ViewGroup parent) {
+        private Context context;
 
-        String hexColor;
-
-        LayoutInflater inflater = LayoutInflater.from(getContext());
-        View item = inflater.inflate(R.layout.activity_mostrar_lista, null);
-
-        cPokimon pokemon = (cPokimon) getItem(position);
-
-        TextView tv = (TextView)item.findViewById(R.id.tvNumPokedex);
-        tv.setText(pokemon.getNumPokedex());
-
-        tv = (TextView)item.findViewById(R.id.tvNombre);
-        tv.setText(pokemon.getNombre());
-
-        ImageView img = (ImageView)item.findViewById(R.id.imgPokemon);
-
-        switch (pokemon.getNombre()) {
-            case "Treecko":
-                img.setImageResource(R.drawable.treecko);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Sceptile":
-                img.setImageResource(R.drawable.sceptile);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
-            case "Grovyle":
-                img.setImageResource(R.drawable.grovyle);
-                break;
+        public AdaptadorPokemons(Context context, cPokimon[] datos) {
+            super(context, R.layout.activity_mostrar_lista, datos);
         }
 
-        tv = (TextView)item.findViewById(R.id.tvTipo1);
-        hexColor = escollirColor(pokemon.getTipo1());
-        tv.setBackgroundColor(Color.parseColor(hexColor));
+        public View getView(int position, View convertView, ViewGroup parent) {
+
+            String hexColor;
+
+            LayoutInflater inflater = LayoutInflater.from(getContext());
+            View item = inflater.inflate(R.layout.activity_mostrar_lista, null);
+
+            cPokimon pokemon = (cPokimon) getItem(position);
+
+            ImageView img = (ImageView) item.findViewById(R.id.imgPokemon);
+            String nombre = pokemon.getNombre();
+            String src = "@drawable/" + nombre;
+            src = src.toLowerCase();
+            img.setImageResource(getResources().getIdentifier(src,"drawable", getOpPackageName()));
+
+            TextView tv = (TextView) item.findViewById(R.id.tvNumPokedex);
+            tv.setText(pokemon.getNumPokedex());
+
+            tv = (TextView) item.findViewById(R.id.tvNombre);
+            tv.setText(pokemon.getNombre());
+
+            tv = (TextView) item.findViewById(R.id.tvTipo1);
+            hexColor = escollirColor(pokemon.getTipo1());
+            tv.setBackgroundColor(Color.parseColor(hexColor));
 
 
-        tv.setText(pokemon.getTipo1());
+            tv.setText(pokemon.getTipo1());
 
-        tv = (TextView)item.findViewById(R.id.tvTipo2);
-        hexColor = escollirColor(pokemon.getTipo2());
-        tv.setBackgroundColor(Color.parseColor(hexColor));
+            tv = (TextView) item.findViewById(R.id.tvTipo2);
+            hexColor = escollirColor(pokemon.getTipo2());
+            tv.setBackgroundColor(Color.parseColor(hexColor));
 
-        tv.setText(pokemon.getTipo2());
-        return(item);
-    }
-
-    public String escollirColor(String tipo) {
-        String hexColor = "";
-
-        switch(tipo) {
-            case "Planta":
-
-                hexColor = "#73C457";
-
-                break;
-            case "Fuego":
-
-                hexColor = "#DF4E2F";
-
-                break;
-            case "Lucha":
-
-                hexColor = "#B95943";
-
-                break;
-            case "Agua":
-
-                hexColor = "#329BFE";
-
-                break;
-            default:
-
-                hexColor = "#E1E2E1";
+            tv.setText(pokemon.getTipo2());
+            return (item);
         }
 
-        return hexColor;
-    }
+        public String escollirColor(String tipo) {
+            String hexColor = "";
 
+            switch (tipo) {
+                case "Planta":
+
+                    hexColor = "#73C457";
+
+                    break;
+                case "Fuego":
+
+                    hexColor = "#DF4E2F";
+
+                    break;
+                case "Lucha":
+
+                    hexColor = "#B95943";
+
+                    break;
+                case "Agua":
+
+                    hexColor = "#329BFE";
+
+                    break;
+                case "Siniestro":
+
+                    hexColor = "#71584A";
+
+                    break;
+                case "Normal":
+
+                    hexColor = "#C2B4B2";
+
+                    break;
+                case "Bicho":
+
+                    hexColor = "#A7B33B";
+
+                    break;
+                default:
+
+                    hexColor = "#E1E2E1";
+            }
+
+            return hexColor;
+        }
+    }
 }
