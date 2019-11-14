@@ -150,9 +150,64 @@ public class ListPrincipal extends AppCompatActivity {
                     hexColor = "#A7B33B";
 
                     break;
+                case "Tierra":
+
+                    hexColor = "#DEC054";
+
+                    break;
+                case "Volador":
+
+                    hexColor = "#6A9BE8";
+
+                    break;
+                case "Veneno":
+
+                    hexColor = "#884A7A";
+
+                    break;
+                case "Psiquico":
+
+                    hexColor = "#D06B8D";
+
+                    break;
+                case "Dragon":
+
+                    hexColor = "#5A5478";
+
+                    break;
+                case "Roca":
+
+                    hexColor = "#BCAA63";
+
+                    break;
+                case "Hada":
+
+                    hexColor = "#FDABFD";
+
+                    break;
+                case "Fantasma":
+
+                    hexColor = "#6E6DAD";
+
+                    break;
+                case "Electrico":
+
+                    hexColor = "#F4CB5C";
+
+                    break;
+                case "Hielo":
+
+                    hexColor = "#7EDAFD";
+
+                    break;
+                case "Acero":
+
+                    hexColor = "#B2A8BC";
+
+                    break;
                 default:
 
-                    hexColor = "#E1E2E1";
+                    hexColor = "#FFF5F5F6";
             }
 
             return hexColor;

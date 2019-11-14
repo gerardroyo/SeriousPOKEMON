@@ -3,48 +3,86 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:background="#E1E2E1"
-    android:orientation="vertical">
+    android:layout_height="wrap_content"
+    android:background="#F5F5F6"
+    android:orientation="horizontal">
 
     <TextView
-        android:id="@+id/tvNumPokedex"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text='Numero "x" de la pokedex' />
-
-    <ImageView
-        android:id="@+id/imgPokemon"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        app:srcCompat="@mipmap/ic_launcher_round" />
-
-    <TextView
-        android:id="@+id/tvNombre"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="Nombre del pokemon"
-        android:textAlignment="center" />
+        android:id="@+id/tvNumPokedex "
+        android:layout_width="246dp"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:text="x"
+        android:textAlignment="center"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_weight="1"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/tvNombre"
+            android:layout_width="match_parent"
+            android:layout_height="37dp"
+            android:gravity="center"
+            android:text="Nombre del pokemon"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <ImageView
+            android:id="@+id/imgPokemon "
+            android:layout_width="match_parent"
+            android:layout_height="129dp"
+            app:srcCompat="@mipmap/ic_launcher_round" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_weight="1"
         android:orientation="horizontal">
 
-        <TextView
-            android:id="@+id/tvTipo1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tipo 1"
-            android:textAlignment="center" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
 
-        <TextView
-            android:id="@+id/tvTipo2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_weight="1"
-            android:text="Tipo 2"
-            android:textAlignment="center" />
+            <TextView
+                android:id="@+id/textView25"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/textView26"
+                android:layout_width="match_parent"
+                android:layout_height="29dp" />
+
+            <TextView
+                android:id="@+id/tvTipo1"
+                android:layout_width="match_parent"
+                android:layout_height="35dp"
+                android:gravity="center"
+                android:text="Tipo 1"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/tvTipo2"
+                android:layout_width="match_parent"
+                android:layout_height="33dp"
+                android:gravity="center"
+                android:text="Tipo 2"
+                android:textSize="16sp"
+                android:textStyle="bold" />
+        </LinearLayout>
     </LinearLayout>
+
 </LinearLayout>

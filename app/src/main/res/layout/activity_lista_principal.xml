@@ -5,11 +5,16 @@
     android:id="@+id/activity_albaranes"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="#E1E2E1"
     android:orientation="vertical"
     tools:context=".ListPrincipal">
 
     <ListView
         android:id="@+id/listCustom"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_width="397dp"
+        android:layout_height="638dp"
+        android:background="#E1E2E1"
+        android:divider="@android:color/transparent"
+        android:dividerHeight="10.0sp" />
+
 </LinearLayout>
