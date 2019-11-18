@@ -8,15 +8,23 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.view.WindowManager;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
+
 import androidx.appcompat.app.ActionBar;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 public class ListPrincipal extends AppCompatActivity {
+
+    private LinearLayout linealTop;
 
     private cPokimon[] Pokemons =
             new cPokimon[] {
@@ -240,10 +248,6 @@ public class ListPrincipal extends AppCompatActivity {
         // Personalitzem el caption
         setTitle("Pokedex HOENN");
 
-
-        // Mostrem el botó enrera que cal capturar en l'envent onOptionsItemSelected
-        //getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-
         // Construim l'adaptador utilitzant un layout per defecte de Android.
         AdaptadorPokemons adaptador = new AdaptadorPokemons(this, Pokemons);
 
@@ -251,9 +255,25 @@ public class ListPrincipal extends AppCompatActivity {
         ListView lst = (ListView)findViewById(R.id.listCustom);
         lst.setAdapter(adaptador);
 
+        lst.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            public void onItemClick(AdapterView<?> a, View v, int position, long id) {
+
+                // Agafem l'objecte associat, en aquest cas l'objecte es un STRING
+                cPokimon pokemon = (cPokimon) a.getItemAtPosition(position);
+
+                Intent intent = new Intent(ListPrincipal.this, Info.class);
+
+                intent.putExtra("numPokedex", pokemon.getNumPokedex());
+                intent.putExtra("nombre", pokemon.getNombre());
+                intent.putExtra("t1", pokemon.getTipo1());
+                intent.putExtra("t2", pokemon.getTipo2());
+
+                startActivity(intent);
+
+            }
+        });
+
     }
-
-
 
     class AdaptadorPokemons extends ArrayAdapter<cPokimon> {
 
@@ -395,7 +415,7 @@ public class ListPrincipal extends AppCompatActivity {
                     break;
                 default:
 
-                    hexColor = "#FFF5F5F6";
+                    hexColor = "#FFFFFFFF";
             }
 
             return hexColor;
