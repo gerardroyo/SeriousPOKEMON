@@ -28,19 +28,42 @@ public class Info extends AppCompatActivity {
         setContentView(R.layout.activity_info);
 
         // Personalitzem el caption
-        setTitle("Pokedex HOENN");
+        //setTitle("Pokedex HOENN");
 
-        Bundle bundleNum = getIntent().getExtras();
-        final String numPokedex = bundleNum.getString("numPokedex");
+        cPokimon pokemon = (cPokimon) getIntent().getSerializableExtra("pokemon");
 
-        Bundle bundleNom = getIntent().getExtras();
-        final String nombre = bundleNom.getString("nombre");
+        TextView tvNumPokedex2 = (TextView)findViewById(R.id.tvNumPokedex2);
+        tvNumPokedex2.setText(pokemon.getNumPokedex());
 
-        Bundle bundleT1 = getIntent().getExtras();
-        final String tipo1 = bundleT1.getString("t1");
+        TextView tvNombre2 = (TextView)findViewById(R.id.tvNombre2);
+        tvNombre2.setText(pokemon.getNombre());
 
-        Bundle bundleT2 = getIntent().getExtras();
-        final String tipo2 = bundleT2.getString("t2");
+        TextView tvT1 = (TextView)findViewById(R.id.tvT1);
+        tvT1.setText(pokemon.getTipo1());
+
+        TextView tvT2 = (TextView)findViewById(R.id.tvT2);
+        tvT2.setText(pokemon.getTipo2());
+
+        TextView tvHabilidad = (TextView)findViewById(R.id.tvHabilidad);
+        tvHabilidad.setText(pokemon.getHabilidad());
+
+        TextView tvHabOculta = (TextView)findViewById(R.id.tvHabOculta);
+        tvHabOculta.setText(pokemon.getHabOculta());
+
+        TextView tvPeso = (TextView)findViewById(R.id.tvPeso);
+        tvPeso.setText(pokemon.getPeso());
+
+        TextView tvAltura = (TextView)findViewById(R.id.tvAltura);
+        tvAltura.setText(pokemon.getAltura());
+
+        TextView tvGeneroM = (TextView)findViewById(R.id.tvGeneroM);
+        tvGeneroM.setText(pokemon.getGeneroM());
+
+        TextView tvGeneroF = (TextView)findViewById(R.id.tvGeneroF);
+        tvGeneroF.setText(pokemon.getGeneroF());
+
+        TextView tvHabitat = (TextView)findViewById(R.id.tvHabitat);
+        tvHabitat.setText(pokemon.getHabitat());
 
     }
 

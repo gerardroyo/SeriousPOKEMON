@@ -1,6 +1,8 @@
 package com.seriouspoke;
 
-public class cPokimon {
+import java.io.Serializable;
+
+public class cPokimon implements Serializable {
 
     private String numPokedex;
     private String nombre;
@@ -8,13 +10,13 @@ public class cPokimon {
     private String tipo2 = "";
     private String habilidad;
     private String habOculta;
-    private double peso;
-    private double altura;
+    private String peso;
+    private String altura;
     private String generoM;
     private String generoF;
     private String habitat;
 
-    public cPokimon(String sNumPokedex, String sNombre, String sTipo1, String sTipo2, String sHabilidad, String sHabOculta, double sPeso, double sAltura, String sGeneroM, String sGeneroF, String sHabitat) {
+    public cPokimon(String sNumPokedex, String sNombre, String sTipo1, String sTipo2, String sHabilidad, String sHabOculta, String sPeso, String sAltura, String sGeneroM, String sGeneroF, String sHabitat) {
         numPokedex = sNumPokedex;
         nombre = sNombre;
         tipo1 = sTipo1;
@@ -52,13 +54,13 @@ public class cPokimon {
 
     public void setHabOculta(String habOculta) { this.habOculta = habOculta; }
 
-    public double getPeso() { return peso; }
+    public String getPeso() { return peso; }
 
-    public void setPeso(double peso) { this.peso = peso; }
+    public void setPeso(String peso) { this.peso = peso; }
 
-    public double getAltura() { return altura; }
+    public String getAltura() { return altura; }
 
-    public void setAltura(double altura) { this.altura = altura; }
+    public void setAltura(String altura) { this.altura = altura; }
 
     public String getGeneroM() { return generoM; }
 
