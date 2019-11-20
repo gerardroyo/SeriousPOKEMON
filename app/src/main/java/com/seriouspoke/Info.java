@@ -2,6 +2,7 @@ package com.seriouspoke;
 
 import android.graphics.Color;
 import android.os.Bundle;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -40,16 +41,22 @@ public class Info extends AppCompatActivity {
         tvT = (TextView)findViewById(R.id.tvT1);
         cambiarColores(pokemon.getTipo1(), tvT, cl, pokemon);
 
-        /*TextView tvHabilidad = (TextView)findViewById(R.id.tvHabilidad);
-        tvHabilidad.setText(pokemon.getHabilidad());
+        ImageView img = (ImageView) findViewById(R.id.imageView);
+        String nombre = pokemon.getNombre();
+        String src = "@drawable/" + nombre;
+        src = src.toLowerCase();
+        img.setImageResource(getResources().getIdentifier(src,"drawable", getOpPackageName()));
+
+        TextView tvHabilidad = (TextView)findViewById(R.id.tvHabilidad);
+        tvHabilidad.setText("Habilidad: " + pokemon.getHabilidad());
 
         TextView tvHabOculta = (TextView)findViewById(R.id.tvHabOculta);
-        tvHabOculta.setText(pokemon.getHabOculta());
+        tvHabOculta.setText("Hab.Oculta: " + pokemon.getHabOculta());
 
         TextView tvPeso = (TextView)findViewById(R.id.tvPeso);
-        tvPeso.setText(pokemon.getPeso());
+        tvPeso.setText("Peso: " + pokemon.getPeso());
 
-        TextView tvAltura = (TextView)findViewById(R.id.tvAltura);
+        /*TextView tvAltura = (TextView)findViewById(R.id.tvAltura);
         tvAltura.setText(pokemon.getAltura());
 
         TextView tvGeneroM = (TextView)findViewById(R.id.tvGeneroM);
@@ -85,6 +92,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 2:
 
+                tvT.setBackgroundColor(Color.parseColor("#DF4E2F"));
                 clInfo.setBackgroundColor(Color.parseColor("#DF4E2F"));
                 tipoString = "Fuego";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -92,6 +100,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 3:
 
+                tvT.setBackgroundColor(Color.parseColor("#B95943"));
                 clInfo.setBackgroundColor(Color.parseColor("#B95943"));
                 tipoString = "Lucha";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -99,6 +108,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 4:
 
+                tvT.setBackgroundColor(Color.parseColor("#329BFE"));
                 clInfo.setBackgroundColor(Color.parseColor("#329BFE"));
                 tipoString = "Agua";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -106,6 +116,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 6:
 
+                tvT.setBackgroundColor(Color.parseColor("#71584A"));
                 clInfo.setBackgroundColor(Color.parseColor("#71584A"));
                 tipoString = "Siniestro";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -114,6 +125,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 7:
 
+                tvT.setBackgroundColor(Color.parseColor("#C2B4B2"));
                 clInfo.setBackgroundColor(Color.parseColor("#C2B4B2"));
                 tipoString = "Normal";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -121,6 +133,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 8:
 
+                tvT.setBackgroundColor(Color.parseColor("#A7B33B"));
                 clInfo.setBackgroundColor(Color.parseColor("#A7B33B"));
                 tipoString = "Bicho";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -128,6 +141,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 5:
 
+                tvT.setBackgroundColor(Color.parseColor("#DEC054"));
                 clInfo.setBackgroundColor(Color.parseColor("#DEC054"));
                 tipoString = "Tierra";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -135,6 +149,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 9:
 
+                tvT.setBackgroundColor(Color.parseColor("#6A9BE8"));
                 clInfo.setBackgroundColor(Color.parseColor("#6A9BE8"));
                 tipoString = "Volador";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -142,6 +157,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 10:
 
+                tvT.setBackgroundColor(Color.parseColor("#884A7A"));
                 clInfo.setBackgroundColor(Color.parseColor("#884A7A"));
                 tipoString = "Veneno";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -149,6 +165,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 11:
 
+                tvT.setBackgroundColor(Color.parseColor("#D06B8D"));
                 clInfo.setBackgroundColor(Color.parseColor("#D06B8D"));
                 tipoString = "Psíquico";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -156,6 +173,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 17:
 
+                tvT.setBackgroundColor(Color.parseColor("#5A5478"));
                 clInfo.setBackgroundColor(Color.parseColor("#5A5478"));
                 tipoString = "Dragon";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -163,6 +181,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 14:
 
+                tvT.setBackgroundColor(Color.parseColor("#BCAA63"));
                 clInfo.setBackgroundColor(Color.parseColor("#BCAA63"));
                 tipoString = "Roca";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -170,6 +189,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 12:
 
+                tvT.setBackgroundColor(Color.parseColor("#FDABFD"));
                 clInfo.setBackgroundColor(Color.parseColor("#FDABFD"));
                 tipoString = "Hada";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -177,6 +197,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 13:
 
+                tvT.setBackgroundColor(Color.parseColor("#6E6DAD"));
                 clInfo.setBackgroundColor(Color.parseColor("#6E6DAD"));
                 tipoString = "Fantasma";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -184,6 +205,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 16:
 
+                tvT.setBackgroundColor(Color.parseColor("#F4CB5C"));
                 clInfo.setBackgroundColor(Color.parseColor("#F4CB5C"));
                 tipoString = "Eléctrico";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -191,6 +213,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 18:
 
+                tvT.setBackgroundColor(Color.parseColor("#7EDAFD"));
                 clInfo.setBackgroundColor(Color.parseColor("#7EDAFD"));
                 tipoString = "Hielo";
                 introduirTipoString(pokemon, tvT, tipoString);
@@ -198,6 +221,7 @@ public class Info extends AppCompatActivity {
                 break;
             case 15:
 
+                tvT.setBackgroundColor(Color.parseColor("#B2A8BC"));
                 clInfo.setBackgroundColor(Color.parseColor("#B2A8BC"));
                 tipoString = "Acero";
                 introduirTipoString(pokemon, tvT, tipoString);
