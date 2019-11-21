@@ -3,26 +3,20 @@ package com.seriouspoke;
 import android.content.Context;
 import android.content.Intent;
 import android.graphics.Color;
-import android.graphics.drawable.BitmapDrawable;
+import android.net.Uri;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.WindowManager;
-import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.ListView;
 import android.widget.TextView;
-import android.widget.Toast;
-
-import androidx.appcompat.app.ActionBar;
 
 import androidx.appcompat.app.AppCompatActivity;
-
-import org.w3c.dom.Text;
 
 public class ListPrincipal extends AppCompatActivity {
 
@@ -242,6 +236,15 @@ public class ListPrincipal extends AppCompatActivity {
                     new cPokimon("211", "Deoxys", 11, 0, "Presión", "", "60,8 Kg", "1,7 m", "Sin género", "", "Raro")
             };
 
+    /*
+
+
+
+                FILTRAR PER FAVORITOS TMB
+
+
+     */
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -258,6 +261,105 @@ public class ListPrincipal extends AppCompatActivity {
         ListView lst = (ListView)findViewById(R.id.listCustom);
         lst.setAdapter(adaptador);
 
+    }
+
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_actionbar_listprincipal, menu);
+        return true;
+    }
+
+    // Capturar pulsacions en el menú de la barra superior.
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+
+        cPokimon filtro[] = new cPokimon[210];
+        int tipo;
+
+        switch (item.getItemId()) {
+            // Respond to the action bar's Filtros
+            case R.id.game:
+
+                return true;
+            case R.id.muTodos:
+
+                return true;
+            case R.id.muFav:
+
+                tipo = 1;
+                filtro[] = filtro(pokemon, tipo);
+
+                return true;
+            case R.id.muPlanta:
+
+                return true;
+            case R.id.muFuego:
+
+                return true;
+            case R.id.muLucha:
+
+                return true;
+            case R.id.muAgua:
+
+                return true;
+            case R.id.muSiniestro:
+
+                return true;
+            case R.id.muNormal:
+
+                return true;
+            case R.id.muBicho:
+
+                return true;
+            case R.id.muTierra:
+
+                return true;
+            case R.id.muVolador:
+
+                return true;
+            case R.id.muVeneno:
+
+                return true;
+            case R.id.muPsiquico:
+
+                return true;
+            case R.id.muDragon:
+
+                return true;
+            case R.id.muRoca:
+
+                return true;
+            case R.id.muHada:
+
+                return true;
+            case R.id.muFantasma:
+
+                return true;
+            case R.id.muElectr:
+
+                return true;
+            case R.id.muHielo:
+
+                return true;
+            case R.id.muAcero:
+
+                return true;
+
+        }
+        return super.onOptionsItemSelected(item);
+    }
+
+    public cPokimon[] filtros(String[] todos, int tipo) {
+        cPokimon pokefiltro[] = new cPokimon[210];
+
+        for(int i = 0; i < todos.length; i++) {
+            if(todos[i].getTipo1() == tipo || todos[i].getTipo2() == tipo) {
+
+            }
+        }
+
+        return pokefiltro;
     }
 
     class AdaptadorPokemons extends ArrayAdapter<cPokimon> {

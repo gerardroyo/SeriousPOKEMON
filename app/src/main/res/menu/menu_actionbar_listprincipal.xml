@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/game"
+        android:icon="@android:drawable/ic_media_play"
+        android:title="GAME"
+        app:showAsAction="ifRoom"></item>
+    <item
+        android:id="@+id/muFav"
+        android:icon="@android:drawable/btn_star_big_on"
+        android:title="Favoritos"
+        app:showAsAction="ifRoom"/>
+    <item
+        android:id="@+id/muTodos"
+        android:title="Todos" />
+    <item
+        android:id="@+id/muPlanta"
+        android:title="Planta" />
+    <item
+        android:id="@+id/muFuego"
+        android:title="Fuego" />
+    <item
+        android:id="@+id/muLucha"
+        android:title="Lucha" />
+    <item
+        android:id="@+id/muAgua"
+        android:title="Agua" />
+    <item
+        android:id="@+id/muSiniestro"
+        android:title="Siniestro" />
+    <item
+        android:id="@+id/muNormal"
+        android:title="Normal" />
+    <item
+        android:id="@+id/muBicho"
+        android:title="Bicho" />
+    <item
+        android:id="@+id/muTierra"
+        android:title="Tierra" />
+    <item
+        android:id="@+id/muVolador"
+        android:title="Volador" />
+    <item
+        android:id="@+id/muVeneno"
+        android:title="Veneno" />
+    <item
+        android:id="@+id/muPsiquico"
+        android:title="Psíquico" />
+    <item
+        android:id="@+id/muDragon"
+        android:title="Dragon" />
+    <item
+        android:id="@+id/muRoca"
+        android:title="Roca" />
+    <item
+        android:id="@+id/muHada"
+        android:title="Hada" />
+    <item
+        android:id="@+id/muFantasma"
+        android:title="Fantasma" />
+    <item
+        android:id="@+id/muElectr"
+        android:title="Eléctrico" />
+    <item
+        android:id="@+id/muHielo"
+        android:title="Hielo" />
+    <item
+        android:id="@+id/muAcero"
+        android:title="Acero" />
+</menu>

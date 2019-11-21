@@ -1,7 +1,7 @@
 <menu xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto">
     <item
-        android:id="@+id/wiki"
+        android:id="@+id/game"
         android:icon="@android:drawable/ic_dialog_info"
         android:title="WIKIDEX"
         app:showAsAction="ifRoom"></item>

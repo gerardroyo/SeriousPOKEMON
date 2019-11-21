@@ -8,13 +8,10 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
-
-import java.net.URI;
 
 public class Info extends AppCompatActivity {
 
@@ -85,7 +82,7 @@ public class Info extends AppCompatActivity {
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
         // Inflate the menu; this adds items to the action bar if it is present.
-        getMenuInflater().inflate(R.menu.menu_actionbar_layout2, menu);
+        getMenuInflater().inflate(R.menu.menu_actionbar_info, menu);
         return true;
     }
 
@@ -97,15 +94,15 @@ public class Info extends AppCompatActivity {
             case android.R.id.home:
                 finish();
                 return true;
-            case R.id.wiki:
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pokemon.fandom.com/es/wiki/" + pokemon.getNombre()));
+            case R.id.game:
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pokemon.fandom.com/es/wiki/"/* + pokemon.getNombre()*/));
                 startActivity(intent);
                 return true;
             case R.id.share:
                 intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Nombre: " + pokemon.getNombre() + "/n" +
-                        "https://pokemon.fandom.com/es/wiki/" + pokemon.getNombre());
+                intent.putExtra(Intent.EXTRA_TEXT, "Nombre: " + /*pokemon.getNombre() + */"\n" +
+                        "https://pokemon.fandom.com/es/wiki/"/* + pokemon.getNombre()*/);
 
                 startActivity(intent);
                 return true;
