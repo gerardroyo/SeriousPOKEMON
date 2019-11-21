@@ -1,12 +1,20 @@
 package com.seriouspoke;
 
+import android.content.Intent;
 import android.graphics.Color;
+import android.net.Uri;
 import android.os.Bundle;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import java.net.URI;
 
 public class Info extends AppCompatActivity {
 
@@ -30,6 +38,10 @@ public class Info extends AppCompatActivity {
 
         ConstraintLayout cl = (ConstraintLayout)findViewById(R.id.clInfo);
 
+        ActionBar actionBar = getSupportActionBar();
+        // Mostrem el botó enrera que cal capturar en l'envent onOptionsItemSelected
+        actionBar.setDisplayHomeAsUpEnabled(true);
+
         setTitle(pokemon.getNombre());
 
         TextView tvNumPokedex2 = (TextView)findViewById(R.id.tvNumPokedex2);
@@ -48,16 +60,16 @@ public class Info extends AppCompatActivity {
         img.setImageResource(getResources().getIdentifier(src,"drawable", getOpPackageName()));
 
         TextView tvHabilidad = (TextView)findViewById(R.id.tvHabilidad);
-        tvHabilidad.setText("Habilidad: " + pokemon.getHabilidad());
+        tvHabilidad.setText(pokemon.getHabilidad());
 
         TextView tvHabOculta = (TextView)findViewById(R.id.tvHabOculta);
-        tvHabOculta.setText("Hab.Oculta: " + pokemon.getHabOculta());
+        tvHabOculta.setText(pokemon.getHabOculta());
 
         TextView tvPeso = (TextView)findViewById(R.id.tvPeso);
         tvPeso.setText("Peso: " + pokemon.getPeso());
 
-        /*TextView tvAltura = (TextView)findViewById(R.id.tvAltura);
-        tvAltura.setText(pokemon.getAltura());
+        TextView tvAltura = (TextView)findViewById(R.id.tvAltura);
+        tvAltura.setText("Altura: " + pokemon.getAltura());
 
         TextView tvGeneroM = (TextView)findViewById(R.id.tvGeneroM);
         tvGeneroM.setText(pokemon.getGeneroM());
@@ -66,11 +78,40 @@ public class Info extends AppCompatActivity {
         tvGeneroF.setText(pokemon.getGeneroF());
 
         TextView tvHabitat = (TextView)findViewById(R.id.tvHabitat);
-        tvHabitat.setText(pokemon.getHabitat());*/
+        tvHabitat.setText(pokemon.getHabitat());
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_actionbar_layout2, menu);
+        return true;
+    }
 
+    // Capturar pulsacions en el menú de la barra superior.
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        switch (item.getItemId()) {
+            // Respond to the action bar's Up/Home button
+            case android.R.id.home:
+                finish();
+                return true;
+            case R.id.wiki:
+                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pokemon.fandom.com/es/wiki/" + pokemon.getNombre()));
+                startActivity(intent);
+                return true;
+            case R.id.share:
+                intent = new Intent(Intent.ACTION_SEND);
+                intent.setType("text/plain");
+                intent.putExtra(Intent.EXTRA_TEXT, "Nombre: " + pokemon.getNombre() + "/n" +
+                        "https://pokemon.fandom.com/es/wiki/" + pokemon.getNombre());
+
+                startActivity(intent);
+                return true;
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     public void introduirTipoString(cPokimon pokemon, TextView tvT, String tipoString) {
         pokemon.setTipoS(tipoString);
@@ -118,6 +159,7 @@ public class Info extends AppCompatActivity {
 
                 tvT.setBackgroundColor(Color.parseColor("#71584A"));
                 clInfo.setBackgroundColor(Color.parseColor("#71584A"));
+                tvT.setTextColor(Color.parseColor("#FFFFFFFF"));
                 tipoString = "Siniestro";
                 introduirTipoString(pokemon, tvT, tipoString);
 
@@ -159,6 +201,7 @@ public class Info extends AppCompatActivity {
 
                 tvT.setBackgroundColor(Color.parseColor("#884A7A"));
                 clInfo.setBackgroundColor(Color.parseColor("#884A7A"));
+                tvT.setTextColor(Color.parseColor("#FFFFFFFF"));
                 tipoString = "Veneno";
                 introduirTipoString(pokemon, tvT, tipoString);
 
@@ -175,6 +218,7 @@ public class Info extends AppCompatActivity {
 
                 tvT.setBackgroundColor(Color.parseColor("#5A5478"));
                 clInfo.setBackgroundColor(Color.parseColor("#5A5478"));
+                tvT.setTextColor(Color.parseColor("#FFFFFFFF"));
                 tipoString = "Dragon";
                 introduirTipoString(pokemon, tvT, tipoString);
 
@@ -199,6 +243,7 @@ public class Info extends AppCompatActivity {
 
                 tvT.setBackgroundColor(Color.parseColor("#6E6DAD"));
                 clInfo.setBackgroundColor(Color.parseColor("#6E6DAD"));
+                tvT.setTextColor(Color.parseColor("#FFFFFFFF"));
                 tipoString = "Fantasma";
                 introduirTipoString(pokemon, tvT, tipoString);
 

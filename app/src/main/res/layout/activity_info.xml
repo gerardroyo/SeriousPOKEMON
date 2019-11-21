@@ -9,8 +9,7 @@
     tools:context=".activity_info">
 
 
-
-            <androidx.constraintlayout.widget.Guideline
+    <androidx.constraintlayout.widget.Guideline
                 android:id="@+id/guideline10"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -41,248 +40,408 @@
             <androidx.constraintlayout.widget.ConstraintLayout
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:background="#FFFFFF"
+                android:background="@drawable/border_all"
                 app:layout_constraintBottom_toTopOf="@+id/guideline5"
                 app:layout_constraintEnd_toStartOf="@+id/guideline9"
                 app:layout_constraintStart_toStartOf="@+id/guideline8"
                 app:layout_constraintTop_toTopOf="@+id/guideline10">
 
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline28"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.01" />
+
+                <androidx.constraintlayout.widget.Guideline
+                    android:id="@+id/guideline26"
+                    android:layout_width="0dp"
+                    android:layout_height="0dp"
+                    android:orientation="horizontal"
+                    app:layout_constraintGuide_percent="0.99" />
+
                 <ScrollView
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="match_parent">
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline7"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.05" />
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline11"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.2" />
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline12"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.8" />
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline13"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.4" />
-
-                <TextView
-                    android:id="@+id/tvNumPokedex2"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="TextView"
-                    android:textSize="24sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline7"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
-                    app:layout_constraintStart_toStartOf="@+id/guideline11"
-                    app:layout_constraintTop_toTopOf="parent" />
-
-                <ImageView
-                    android:id="@+id/imageView"
+                    android:id="@+id/sv"
                     android:layout_width="0dp"
                     android:layout_height="0dp"
-                    android:src="@drawable/rayquaza"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline13"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
-                    app:layout_constraintStart_toStartOf="@+id/guideline11"
-                    app:layout_constraintTop_toTopOf="@+id/guideline7" />
-
-                <TextView
-                    android:id="@+id/tvtv"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:gravity="center"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline13"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline11"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="@+id/guideline7" />
-
-                <TextView
-                    android:id="@+id/tvtv2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="#00FFFFFF"
-                    android:gravity="center"
-                    android:rotation="-90"
-                    android:textSize="18sp"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline13"
+                    app:layout_constraintBottom_toTopOf="@+id/guideline26"
                     app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline12"
-                    app:layout_constraintTop_toTopOf="@+id/guideline7" />
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline14"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.5" />
-
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline15"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.45" />
-
-                <TextView
-                    android:id="@+id/tvT1"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:gravity="center"
-                    android:text="TextView"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline15"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline14"
-                    app:layout_constraintStart_toStartOf="@+id/guideline11"
-                    app:layout_constraintTop_toTopOf="@+id/guideline13" />
-
-                <TextView
-                    android:id="@+id/tvT2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:background="#00FFFFFF"
-                    android:gravity="center"
-                    android:textStyle="bold"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline15"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline12"
-                    app:layout_constraintStart_toStartOf="@+id/guideline14"
-                    app:layout_constraintTop_toTopOf="@+id/guideline13" />
-
-                <ImageView
-                    android:id="@+id/imgPokeBola"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:src="@drawable/pokeball"
-                    android:gravity="center"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline7"
-                    app:layout_constraintEnd_toStartOf="@+id/guideline11"
                     app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    app:layout_constraintTop_toTopOf="@+id/guideline28">
 
-                <ImageView
-                    android:id="@+id/imgPokeBola2"
-                    android:layout_width="0dp"
-                    android:layout_height="0dp"
-                    android:src="@drawable/pokebalboltl"
-                    android:gravity="center"
-                    app:layout_constraintBottom_toTopOf="@+id/guideline7"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="@+id/guideline12"
-                    app:layout_constraintTop_toTopOf="parent" />
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent">
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline6"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.1" />
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline7"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.06" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline16"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical"
-                    app:layout_constraintGuide_percent="0.9" />
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline11"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.2" />
 
-                <androidx.constraintlayout.widget.Guideline
-                    android:id="@+id/guideline17"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    app:layout_constraintGuide_percent="0.47" />
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline12"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.8" />
 
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline18"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layout_constraintGuide_percent="0.53" />
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline13"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.4" />
 
-                    <TextView
-                        android:id="@+id/tvHabilidad"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:background="@drawable/border_top"
-                        android:gravity="center"
-                        android:textAlignment="textStart"
-                        android:textSize="18sp"
-                        android:textStyle="bold|italic"
-                        app:layout_constraintBottom_toTopOf="@+id/guideline18"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline16"
-                        app:layout_constraintStart_toStartOf="@+id/guideline11"
-                        app:layout_constraintTop_toTopOf="@+id/guideline17" />
+                        <TextView
+                            android:id="@+id/tvNumPokedex2"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:text="TextView"
+                            android:textSize="24sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline7"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                            app:layout_constraintStart_toStartOf="@+id/guideline11"
+                            app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline19"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layout_constraintGuide_percent="0.59" />
+                        <ImageView
+                            android:id="@+id/imageView"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:src="@drawable/rayquaza"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                            app:layout_constraintStart_toStartOf="@+id/guideline11"
+                            app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
-                    <TextView
-                        android:id="@+id/tvHabOculta"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:background="@drawable/border_top_rigth"
-                        android:gravity="center"
-                        android:textAlignment="textStart"
-                        android:textSize="18sp"
-                        android:textStyle="bold|italic"
-                        app:layout_constraintBottom_toTopOf="@+id/guideline19"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline16"
-                        app:layout_constraintStart_toStartOf="@+id/guideline11"
-                        app:layout_constraintTop_toBottomOf="@+id/tvHabilidad" />
+                        <TextView
+                            android:id="@+id/tvtv"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:gravity="center"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline20"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layout_constraintGuide_percent="0.65" />
+                        <TextView
+                            android:id="@+id/tvtv2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="#00FFFFFF"
+                            android:gravity="center"
+                            android:rotation="-90"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline13"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/guideline12"
+                            app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
-                    <TextView
-                        android:id="@+id/tvPeso"
-                        android:layout_width="0dp"
-                        android:layout_height="0dp"
-                        android:background="@drawable/border_top_rigth"
-                        android:gravity="center"
-                        android:textAlignment="textStart"
-                        android:textSize="18sp"
-                        android:textStyle="bold|italic"
-                        app:layout_constraintBottom_toTopOf="@+id/guideline20"
-                        app:layout_constraintEnd_toStartOf="@+id/guideline16"
-                        app:layout_constraintStart_toStartOf="@+id/guideline11"
-                        app:layout_constraintTop_toTopOf="@+id/guideline19" />
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline14"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.5" />
 
-                    <androidx.constraintlayout.widget.Guideline
-                        android:id="@+id/guideline21"
-                        android:layout_width="wrap_content"
-                        android:layout_height="wrap_content"
-                        android:orientation="horizontal"
-                        app:layout_constraintGuide_percent="0.71" />
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline15"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.45" />
 
-                </androidx.constraintlayout.widget.ConstraintLayout>
+                        <TextView
+                            android:id="@+id/tvT1"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:gravity="center"
+                            android:text="TextView"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline15"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                            app:layout_constraintStart_toStartOf="@+id/guideline11"
+                            app:layout_constraintTop_toTopOf="@+id/guideline13" />
+
+                        <TextView
+                            android:id="@+id/tvT2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="#00FFFFFF"
+                            android:gravity="center"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline15"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline12"
+                            app:layout_constraintStart_toStartOf="@+id/guideline14"
+                            app:layout_constraintTop_toTopOf="@+id/guideline13" />
+
+                        <ImageView
+                            android:id="@+id/imgPokeBola"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:gravity="center"
+                            android:src="@drawable/pokeball"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline7"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline11"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="@+id/guideline23" />
+
+                        <ImageView
+                            android:id="@+id/imgPokeBola2"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:gravity="center"
+                            android:src="@drawable/pokebalboltl"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline7"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintStart_toStartOf="@+id/guideline12"
+                            app:layout_constraintTop_toTopOf="@+id/guideline23" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline6"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.1" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline16"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="vertical"
+                            app:layout_constraintGuide_percent="0.9" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline17"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.47" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline18"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.56" />
+
+                        <TextView
+                            android:id="@+id/tvHabilidad"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_top_right_bot"
+                            android:gravity="center_vertical"
+                            android:textSize="18sp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline18"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/guideline14"
+                            app:layout_constraintTop_toTopOf="@+id/guideline17"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline19"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.65" />
+
+                        <TextView
+                            android:id="@+id/tvHabOculta"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_right_bot"
+                            android:gravity="center_vertical"
+                            android:textSize="18sp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline19"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+                            app:layout_constraintHorizontal_bias="0.0"
+                            app:layout_constraintStart_toStartOf="@+id/guideline14"
+                            app:layout_constraintTop_toBottomOf="@+id/tvHabilidad"
+                            app:layout_constraintVertical_bias="0.0" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline20"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.74" />
+
+                        <TextView
+                            android:id="@+id/tvGeneroM"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_right"
+                            android:gravity="center_vertical"
+                            android:textSize="18sp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintBottom_toTopOf="@+id/tvGeneroF"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+                            app:layout_constraintStart_toStartOf="@+id/guideline14"
+                            app:layout_constraintTop_toTopOf="@+id/guideline20" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline21"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.83" />
+
+                        <TextView
+                            android:id="@+id/tvPeso"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_right_left_bot"
+                            android:gravity="center"
+                            android:text="TextView"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline20"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                            app:layout_constraintStart_toStartOf="@+id/guideline6"
+                            app:layout_constraintTop_toTopOf="@+id/guideline19" />
+
+                        <TextView
+                            android:id="@+id/tvAltura"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_right_bot"
+                            android:gravity="center"
+                            android:text="TextView"
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline20"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+                            app:layout_constraintStart_toEndOf="@+id/tvPeso"
+                            app:layout_constraintTop_toTopOf="@+id/guideline19" />
+
+                        <TextView
+                            android:id="@+id/tvGeneroF"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_right_bot"
+                            android:gravity="center_vertical"
+                            android:textSize="18sp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline22"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+                            app:layout_constraintStart_toStartOf="@+id/guideline14"
+                            app:layout_constraintTop_toTopOf="@+id/guideline21" />
+
+                        <TextView
+                            android:id="@+id/tvHabitat"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_right_bot"
+                            android:gravity="center_vertical"
+                            android:text="TextView"
+                            android:textSize="18sp"
+                            android:textStyle="bold|italic"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline24"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline16"
+                            app:layout_constraintStart_toStartOf="@+id/guideline14"
+                            app:layout_constraintTop_toTopOf="@+id/guideline22" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline22"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.92" />
+
+                        <TextView
+                            android:id="@+id/textView5"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_top_left_bot"
+                            android:gravity="center"
+                            android:text="Habilidad/es: "
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline18"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                            app:layout_constraintStart_toStartOf="@+id/guideline6"
+                            app:layout_constraintTop_toTopOf="@+id/guideline17" />
+
+                        <TextView
+                            android:id="@+id/textView6"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_left_bot"
+                            android:gravity="center"
+                            android:text="Hab.Oculta: "
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline19"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                            app:layout_constraintStart_toStartOf="@+id/guideline6"
+                            app:layout_constraintTop_toTopOf="@+id/guideline18" />
+
+                        <ImageView
+                            android:id="@+id/imageView3"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_left"
+                            android:src="@drawable/macho"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline21"
+                            app:layout_constraintEnd_toStartOf="@+id/tvGeneroM"
+                            app:layout_constraintStart_toStartOf="@+id/guideline6"
+                            app:layout_constraintTop_toBottomOf="@+id/tvPeso" />
+
+                        <ImageView
+                            android:id="@+id/imageView4"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_left_bot"
+                            android:src="@drawable/hembra"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline22"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                            app:layout_constraintStart_toStartOf="@+id/guideline6"
+                            app:layout_constraintTop_toTopOf="@+id/guideline21" />
+
+                        <TextView
+                            android:id="@+id/textView7"
+                            android:layout_width="0dp"
+                            android:layout_height="0dp"
+                            android:background="@drawable/border_left_bot"
+                            android:gravity="center"
+                            android:text="Hábitat: "
+                            android:textSize="18sp"
+                            android:textStyle="bold"
+                            app:layout_constraintBottom_toTopOf="@+id/guideline24"
+                            app:layout_constraintEnd_toStartOf="@+id/guideline14"
+                            app:layout_constraintStart_toStartOf="@+id/guideline6"
+                            app:layout_constraintTop_toBottomOf="@+id/imageView4" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline23"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.01" />
+
+                        <androidx.constraintlayout.widget.Guideline
+                            android:id="@+id/guideline24"
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:orientation="horizontal"
+                            app:layout_constraintGuide_percent="0.9907407" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
                 </ScrollView>
 
             </androidx.constraintlayout.widget.ConstraintLayout>
