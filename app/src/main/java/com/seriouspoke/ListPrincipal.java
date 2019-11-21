@@ -22,6 +22,7 @@ public class ListPrincipal extends AppCompatActivity {
 
     private LinearLayout linealTop;
 
+
     private cPokimon[] Pokemons =
             new cPokimon[] {
                     new cPokimon("001", "Treecko", 1, 0, "Espesura", "Liviano", "5 Kg", "0,5 m", "87,5%", "12,5%", "Bosque"),
@@ -236,14 +237,7 @@ public class ListPrincipal extends AppCompatActivity {
                     new cPokimon("211", "Deoxys", 11, 0, "Presión", "", "60,8 Kg", "1,7 m", "Sin género", "", "Raro")
             };
 
-    /*
-
-
-
-                FILTRAR PER FAVORITOS TMB
-
-
-     */
+    /*_pokemon =*/
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -288,7 +282,7 @@ public class ListPrincipal extends AppCompatActivity {
             case R.id.muFav:
 
                 tipo = 1;
-                filtro[] = filtro(pokemon, tipo);
+                filtro = filtro(tipo);
 
                 return true;
             case R.id.muPlanta:
@@ -350,11 +344,11 @@ public class ListPrincipal extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-    public cPokimon[] filtros(String[] todos, int tipo) {
+    public cPokimon[] filtros( int tipo) {
         cPokimon pokefiltro[] = new cPokimon[210];
 
-        for(int i = 0; i < todos.length; i++) {
-            if(todos[i].getTipo1() == tipo || todos[i].getTipo2() == tipo) {
+        for(int i = 0; i < Pokemons.length; i++) {
+            if(Pokemons[i].getTipo1() == tipo || Pokemons[i].getTipo2() == tipo) {
 
             }
         }

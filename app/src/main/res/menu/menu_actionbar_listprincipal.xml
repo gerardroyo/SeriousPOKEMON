@@ -3,7 +3,7 @@
     xmlns:android="http://schemas.android.com/apk/res/android">
     <item
         android:id="@+id/game"
-        android:icon="@android:drawable/ic_media_play"
+        android:icon="@drawable/game"
         android:title="GAME"
         app:showAsAction="ifRoom"></item>
     <item

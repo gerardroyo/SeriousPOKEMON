@@ -15,6 +15,8 @@ import androidx.constraintlayout.widget.ConstraintLayout;
 
 public class Info extends AppCompatActivity {
 
+    private cPokimon _pokemon;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -32,6 +34,7 @@ public class Info extends AppCompatActivity {
         //setTitle("Pokedex HOENN");
 
         cPokimon pokemon = (cPokimon) getIntent().getSerializableExtra("pokemon");
+        _pokemon = pokemon;
 
         ConstraintLayout cl = (ConstraintLayout)findViewById(R.id.clInfo);
 
@@ -101,8 +104,8 @@ public class Info extends AppCompatActivity {
             case R.id.share:
                 intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
-                intent.putExtra(Intent.EXTRA_TEXT, "Nombre: " + /*pokemon.getNombre() + */"\n" +
-                        "https://pokemon.fandom.com/es/wiki/"/* + pokemon.getNombre()*/);
+                intent.putExtra(Intent.EXTRA_TEXT, "Nombre: " + _pokemon.getNombre() + "\n" +
+                        "Más info: https://pokemon.fandom.com/es/wiki/" + _pokemon.getNombre());
 
                 startActivity(intent);
                 return true;
