@@ -29,7 +29,7 @@ public class Game extends AppCompatActivity {
     private static int PokesUsed [] = new int [211];
     private Button btnSalir;
     private EditText edtNombre;
-    private String puntuacionMaxima;
+    private int puntuacionMaxima;
     private int pos;
 
     @Override
@@ -41,8 +41,7 @@ public class Game extends AppCompatActivity {
         pokemon = (ArrayList<cPokimon>)getIntent().getSerializableExtra("pokemon");
         _pokemon = pokemon;
 
-
-        puntuacionMaxima = (String) getIntent().getExtras().getString("puntuacionMax");
+        puntuacionMaxima = getIntent().getExtras().getInt("puntuacionMax");
 
         ConstraintLayout cl = (ConstraintLayout)findViewById(R.id.clInfo);
 
@@ -89,12 +88,11 @@ public class Game extends AppCompatActivity {
         String nombrePoke;
 
         edtNombre = findViewById(R.id.edtNombre);
-        textUser = edtNombre.getText().toString();
-        textUser.toLowerCase();
-        nombrePoke = _pokemon.get(pos).getNombre();
-        nombrePoke.toLowerCase();
+        textUser = edtNombre.getText().toString().toLowerCase();
+        nombrePoke = _pokemon.get(pos).getNombre().toLowerCase();
 
         if(textUser.equals(nombrePoke)) {
+            puntuacionMaxima++;
             setImg(_pokemon);
         }
     }
@@ -108,7 +106,7 @@ public class Game extends AppCompatActivity {
 
     }
 
-    public void puntuacion(String puntuacionMaxima) {
+    public void puntuacion(int puntuacionMaxima) {
 
         TextView tvPM = (TextView)findViewById(R.id.tvPM);
         tvPM.setText(puntuacionMaxima);

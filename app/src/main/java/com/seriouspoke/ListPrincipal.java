@@ -25,7 +25,7 @@ public class ListPrincipal extends AppCompatActivity {
 
     public ArrayList<cPokimon> Pokemons = new ArrayList<cPokimon>();
 
-    private String puntuacionMax = "0";
+    private int puntuacionMax = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -489,7 +489,7 @@ public class ListPrincipal extends AppCompatActivity {
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         if (requestCode == 12345 && resultCode == RESULT_OK) {
-            puntuacionMax = data.getExtras().getString("puntuacionMax");
+            puntuacionMax = data.getExtras().getInt("puntuacionMax");
         }
     }
 
@@ -571,7 +571,7 @@ public class ListPrincipal extends AppCompatActivity {
                         pokemon.setFav(fav);
                         for(int i = 0; i < Pokemons.size(); i++) {
                             if(Pokemons.get(i).getNombre().equals(pokemon.getNombre())) {
-                                Pokemons.set(i).setFav(fav);
+                                /*Pokemons.set(i).setFav(fav);*/
                             }
                         }
                     }

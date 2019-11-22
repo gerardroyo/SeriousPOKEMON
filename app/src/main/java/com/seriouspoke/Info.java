@@ -105,7 +105,7 @@ public class Info extends AppCompatActivity {
                 finish();
                 return true;
             case R.id.WIKIDEX:
-                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pokemon.fandom.com/es/wiki/"/* + pokemon.getNombre()*/));
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pokemon.fandom.com/es/wiki/" + _pokemon.getNombre()));
                 startActivity(intent);
                 return true;
             case R.id.share:
