@@ -34,6 +34,9 @@ public class Game extends AppCompatActivity {
         ArrayList<cPokimon> pokemon = new ArrayList<cPokimon>(); getIntent().getSerializableExtra("pokemon");
         _pokemon = pokemon;
 
+        Bundle datos = this.getIntent().getExtras();
+        String puntuacionMaxima = datos.getString("puntuacionMaxima");
+
         ConstraintLayout cl = (ConstraintLayout)findViewById(R.id.clInfo);
 
         // deshabilita el titol
@@ -43,17 +46,34 @@ public class Game extends AppCompatActivity {
         getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN,
                 WindowManager.LayoutParams.FLAG_FULLSCREEN);
 
-        setImg();
+        setImg(pokemon);
+
+        TextView tvPM = (TextView)findViewById(R.id.tvPM);
+        tvPM.setText(puntuacionMaxima);
+
+        String puntuacionActual = "0";
+        tvPM = (TextView)findViewById(R.id.tvPA);
+        tvPM.setText(puntuacionActual);
+
+        //puntuacion(puntuacionMaxima);
 
     }
 
-    public void setImg() {
+    public void puntuacion(String puntuacionMaxima) {
+
+        TextView tvPM = (TextView)findViewById(R.id.tvPM);
+        tvPM.setText(puntuacionMaxima);
+
+    }
+
+    public void setImg(ArrayList<cPokimon> pokemon) {
 
         ImageView img = (ImageView) findViewById(R.id.imageView);
 
             int pos = randomNoRepe();
 
-            String nombre = _pokemon.get(pos).getNombre();
+            //String nombre = pokemon.get(pos).getNombre();
+            String nombre = "Treeco";
             String src = "@drawable/" + nombre;
             src = src.toLowerCase();
             img.setImageResource(getResources().getIdentifier(src,"drawable", getOpPackageName()));

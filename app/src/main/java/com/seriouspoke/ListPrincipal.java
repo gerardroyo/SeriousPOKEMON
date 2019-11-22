@@ -25,6 +25,8 @@ public class ListPrincipal extends AppCompatActivity {
 
     private ArrayList<cPokimon> Pokemons = new ArrayList<cPokimon>();
 
+    private String puntuacionMax = "0";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -275,11 +277,12 @@ public class ListPrincipal extends AppCompatActivity {
             // Respond to the action bar's Filtros
             case R.id.GAME:
 
-                Intent intent = new Intent(ListPrincipal.this, Game.class);
+                Intent intent = new Intent(this, Game.class);
 
                 intent.putExtra("pokemon", Pokemons);
+                intent.putExtra("puntuacionMax", puntuacionMax);
 
-                startActivityForResult(intent, 1234);
+                startActivity(intent);
 
                 return true;
             case R.id.muTodos:
