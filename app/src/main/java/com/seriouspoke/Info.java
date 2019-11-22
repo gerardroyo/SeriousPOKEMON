@@ -6,12 +6,15 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.constraintlayout.widget.ConstraintLayout;
+
+import com.google.android.material.snackbar.Snackbar;
 
 public class Info extends AppCompatActivity {
 
@@ -95,10 +98,14 @@ public class Info extends AppCompatActivity {
         switch (item.getItemId()) {
             // Respond to the action bar's Up/Home button
             case android.R.id.home:
+                Intent intent = new Intent();
+                intent.putExtra("fav", _pokemon.getFav());
+                setResult(RESULT_OK, intent);
+
                 finish();
                 return true;
-            case R.id.game:
-                Intent intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pokemon.fandom.com/es/wiki/"/* + pokemon.getNombre()*/));
+            case R.id.WIKIDEX:
+                intent = new Intent(Intent.ACTION_VIEW, Uri.parse("https://pokemon.fandom.com/es/wiki/"/* + pokemon.getNombre()*/));
                 startActivity(intent);
                 return true;
             case R.id.share:
@@ -108,6 +115,20 @@ public class Info extends AppCompatActivity {
                         "Más info: https://pokemon.fandom.com/es/wiki/" + _pokemon.getNombre());
 
                 startActivity(intent);
+                return true;
+            case R.id.fav:
+
+                _pokemon.setFav("Fav");
+
+                View parentLayout = findViewById(android.R.id.content);
+                Snackbar snack = Snackbar.make(parentLayout, _pokemon.getNombre() + " agregado a FAVORITOS", Snackbar.LENGTH_LONG);
+
+                // Cambiamos el color de fondo del snackbar.
+                View sbv = snack.getView();
+                sbv.setBackgroundColor(Color.parseColor("#1cc61c"));
+
+                snack.show();
+
                 return true;
         }
         return super.onOptionsItemSelected(item);

@@ -16,8 +16,9 @@ public class cPokimon implements Serializable {
     private String generoM;
     private String generoF;
     private String habitat;
+    private String fav;
 
-    public cPokimon(String sNumPokedex, String sNombre, int sTipo1, int sTipo2, String sHabilidad, String sHabOculta, String sPeso, String sAltura, String sGeneroM, String sGeneroF, String sHabitat) {
+    public cPokimon(String sNumPokedex, String sNombre, int sTipo1, int sTipo2, String sHabilidad, String sHabOculta, String sPeso, String sAltura, String sGeneroM, String sGeneroF, String sHabitat, String sFav) {
         numPokedex = sNumPokedex;
         nombre = sNombre;
         tipo1 = sTipo1;
@@ -29,6 +30,7 @@ public class cPokimon implements Serializable {
         generoM = sGeneroM;
         generoF = sGeneroF;
         habitat = sHabitat;
+        fav = sFav;
     }
 
     public String getNumPokedex() { return numPokedex; }
@@ -78,4 +80,8 @@ public class cPokimon implements Serializable {
     public String getHabitat() { return habitat; }
 
     public void setHabitat(String habitat) { this.habitat = habitat; }
+
+    public String getFav() { return fav; }
+
+    public void setFav(String fav) { this.fav = fav; }
 }
