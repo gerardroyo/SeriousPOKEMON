@@ -230,7 +230,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
-                app:layout_constraintGuide_percent="0.92" />
+                app:layout_constraintGuide_percent="0.95" />
 
             <TextView
                 android:id="@+id/tvNombre"
@@ -288,8 +288,8 @@
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/guideline7"
-                app:layout_constraintEnd_toStartOf="@+id/guideline14"
-                app:layout_constraintStart_toStartOf="@+id/guideline11"
+                app:layout_constraintEnd_toStartOf="@+id/tvPM"
+                app:layout_constraintStart_toStartOf="@+id/guideline31"
                 app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
             <TextView
@@ -303,35 +303,90 @@
                 android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/guideline7"
                 app:layout_constraintEnd_toStartOf="@+id/guideline12"
-                app:layout_constraintStart_toEndOf="@+id/textView"
+                app:layout_constraintStart_toStartOf="@+id/guideline32"
                 app:layout_constraintTop_toTopOf="@+id/guideline23" />
 
             <TextView
                 android:id="@+id/textView2"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:text="Punt.Actual:"
                 android:textSize="18sp"
                 android:textStyle="bold"
                 app:layout_constraintBottom_toTopOf="@+id/guideline25"
-                app:layout_constraintEnd_toStartOf="@+id/guideline14"
-                app:layout_constraintStart_toStartOf="@+id/guideline11"
+                app:layout_constraintEnd_toStartOf="@+id/tvPA"
+                app:layout_constraintStart_toStartOf="@+id/guideline31"
                 app:layout_constraintTop_toTopOf="@+id/guideline7" />
 
             <TextView
                 android:id="@+id/tvPA"
                 android:layout_width="0dp"
                 android:layout_height="0dp"
-                android:gravity="center"
+                android:gravity="center_horizontal"
                 android:text="TextView"
                 android:textAlignment="textStart"
                 android:textSize="18sp"
                 android:textStyle="bold|italic"
                 app:layout_constraintBottom_toTopOf="@+id/guideline25"
                 app:layout_constraintEnd_toStartOf="@+id/guideline12"
-                app:layout_constraintStart_toEndOf="@+id/textView2"
+                app:layout_constraintStart_toStartOf="@+id/guideline32"
                 app:layout_constraintTop_toBottomOf="@+id/tvPM" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline27"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                app:layout_constraintGuide_percent="0.88" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline29"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.48" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline30"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.52" />
+
+            <Button
+                android:id="@+id/btnSalir"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="SALIR"
+                app:layout_constraintBottom_toTopOf="@+id/guideline22"
+                app:layout_constraintEnd_toStartOf="@+id/guideline29"
+                app:layout_constraintStart_toStartOf="@+id/guideline6"
+                app:layout_constraintTop_toTopOf="@+id/guideline27" />
+
+            <Button
+                android:id="@+id/btnConfirmar"
+                android:layout_width="0dp"
+                android:layout_height="0dp"
+                android:text="CONFIRMAR"
+                app:layout_constraintBottom_toTopOf="@+id/guideline22"
+                app:layout_constraintEnd_toStartOf="@+id/guideline16"
+                app:layout_constraintStart_toStartOf="@+id/guideline30"
+                app:layout_constraintTop_toTopOf="@+id/guideline27" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline31"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.3" />
+
+            <androidx.constraintlayout.widget.Guideline
+                android:id="@+id/guideline32"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                app:layout_constraintGuide_percent="0.6" />
 
         </androidx.constraintlayout.widget.ConstraintLayout>
 

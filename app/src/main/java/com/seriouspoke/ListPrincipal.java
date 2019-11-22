@@ -23,7 +23,7 @@ public class ListPrincipal extends AppCompatActivity {
 
     private LinearLayout linealTop;
 
-    private ArrayList<cPokimon> Pokemons = new ArrayList<cPokimon>();
+    public ArrayList<cPokimon> Pokemons = new ArrayList<cPokimon>();
 
     private String puntuacionMax = "0";
 
@@ -282,7 +282,7 @@ public class ListPrincipal extends AppCompatActivity {
                 intent.putExtra("pokemon", Pokemons);
                 intent.putExtra("puntuacionMax", puntuacionMax);
 
-                startActivity(intent);
+                startActivityForResult(intent, 12345);
 
                 return true;
             case R.id.muTodos:
@@ -487,6 +487,12 @@ public class ListPrincipal extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        if (requestCode == 12345 && resultCode == RESULT_OK) {
+            puntuacionMax = data.getExtras().getString("puntuacionMax");
+        }
+    }
+
     public ArrayList<cPokimon> filtros(int tipo) {
         ArrayList<cPokimon> pokeList = new ArrayList<cPokimon>();
 
@@ -565,7 +571,7 @@ public class ListPrincipal extends AppCompatActivity {
                         pokemon.setFav(fav);
                         for(int i = 0; i < Pokemons.size(); i++) {
                             if(Pokemons.get(i).getNombre().equals(pokemon.getNombre())) {
-                                /*Pokemons.set(i).setFav(fav);*/
+                                Pokemons.set(i).setFav(fav);
                             }
                         }
                     }

@@ -8,6 +8,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.WindowManager;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -24,18 +26,23 @@ public class Game extends AppCompatActivity {
     private ArrayList<cPokimon> _pokemon;
 
     private static int properaLliurePokes = 0;
-    private static int PokesUsed [] = new int [210];
+    private static int PokesUsed [] = new int [211];
+    private Button btnSalir;
+    private EditText edtNombre;
+    private String puntuacionMaxima;
+    private int pos;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_game);
 
-        ArrayList<cPokimon> pokemon = new ArrayList<cPokimon>(); getIntent().getSerializableExtra("pokemon");
+        ArrayList<cPokimon> pokemon;
+        pokemon = (ArrayList<cPokimon>)getIntent().getSerializableExtra("pokemon");
         _pokemon = pokemon;
 
-        Bundle datos = this.getIntent().getExtras();
-        String puntuacionMaxima = datos.getString("puntuacionMaxima");
+
+        puntuacionMaxima = (String) getIntent().getExtras().getString("puntuacionMax");
 
         ConstraintLayout cl = (ConstraintLayout)findViewById(R.id.clInfo);
 
@@ -55,7 +62,49 @@ public class Game extends AppCompatActivity {
         tvPM = (TextView)findViewById(R.id.tvPA);
         tvPM.setText(puntuacionActual);
 
-        //puntuacion(puntuacionMaxima);
+        puntuacion(puntuacionMaxima);
+
+        btnSalir = findViewById(R.id.btnSalir);
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                salir();
+            }
+
+        });
+
+        btnSalir = findViewById(R.id.btnConfirmar);
+        btnSalir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                confirmar();
+            }
+
+        });
+
+    }
+
+    public void confirmar(){
+        String textUser;
+        String nombrePoke;
+
+        edtNombre = findViewById(R.id.edtNombre);
+        textUser = edtNombre.getText().toString();
+        textUser.toLowerCase();
+        nombrePoke = _pokemon.get(pos).getNombre();
+        nombrePoke.toLowerCase();
+
+        if(textUser.equals(nombrePoke)) {
+            setImg(_pokemon);
+        }
+    }
+
+    public void salir() {
+
+        Intent intent = new Intent();
+        intent.putExtra("puntuacionMax", puntuacionMaxima);
+        setResult(RESULT_OK, intent);
+        finish();
 
     }
 
@@ -70,10 +119,10 @@ public class Game extends AppCompatActivity {
 
         ImageView img = (ImageView) findViewById(R.id.imageView);
 
-            int pos = randomNoRepe();
+            pos = randomNoRepe();
 
-            //String nombre = pokemon.get(pos).getNombre();
-            String nombre = "Treeco";
+            String nombre = pokemon.get(pos).getNombre();
+            //String nombre = "Treeco";
             String src = "@drawable/" + nombre;
             src = src.toLowerCase();
             img.setImageResource(getResources().getIdentifier(src,"drawable", getOpPackageName()));
@@ -85,8 +134,8 @@ public class Game extends AppCompatActivity {
         int numArrayAleatoriItems = 0;
         int comptador = 0;
 
-        while (comptador != 210) {
-            numArrayAleatoriItems = (int) (Math.random()*211+0);
+        while (comptador != 211) {
+            numArrayAleatoriItems = (int) (Math.random()*210+0);
             comptador = 0;
             for (int i = 0; i < PokesUsed.length; i++) {
                 if (PokesUsed[i] != numArrayAleatoriItems) {
