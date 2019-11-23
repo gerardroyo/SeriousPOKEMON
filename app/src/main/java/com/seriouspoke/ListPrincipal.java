@@ -17,6 +17,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.google.android.material.snackbar.Snackbar;
+
 import java.util.ArrayList;
 
 public class ListPrincipal extends AppCompatActivity {
@@ -26,6 +28,7 @@ public class ListPrincipal extends AppCompatActivity {
     public ArrayList<cPokimon> Pokemons = new ArrayList<cPokimon>();
 
     private int puntuacionMax = 0;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -293,16 +296,6 @@ public class ListPrincipal extends AppCompatActivity {
                 lst.setAdapter(adaptador);
 
                 return true;
-            case R.id.muFav:
-
-                tipo = 19;
-                pokeList = filtros(tipo);
-                adaptador = new AdaptadorPokemons(this, pokeList);
-
-                lst = (ListView)findViewById(R.id.listCustom);
-                lst.setAdapter(adaptador);
-
-                return true;
             case R.id.muPlanta:
 
                 tipo = 1;
@@ -488,8 +481,36 @@ public class ListPrincipal extends AppCompatActivity {
     }
 
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        int puntuacionPartida = 0;
+        String nbPokemonFiled;
+        boolean salir;
+
         if (requestCode == 12345 && resultCode == RESULT_OK) {
             puntuacionMax = data.getExtras().getInt("puntuacionMax");
+            puntuacionPartida = data.getExtras().getInt("puntuacionPartida");
+            nbPokemonFiled = data.getExtras().getString("nbPokemonFailed");
+            salir = data.getExtras().getBoolean("salir");
+
+            if(salir == true){
+
+                View parentLayout = findViewById(android.R.id.content);
+                Snackbar snack = Snackbar.make(parentLayout, "Total puntos de esta ronda: " + puntuacionPartida, Snackbar.LENGTH_LONG);
+
+                // Cambiamos el color de fondo del snackbar.
+                View sbv = snack.getView();
+                sbv.setBackgroundColor(Color.parseColor("#0CB7F2"));
+
+                snack.show();
+            } else {
+                View parentLayout = findViewById(android.R.id.content);
+                Snackbar snack = Snackbar.make(parentLayout, "¡ERROR! El nombre correcto era: " + nbPokemonFiled + "\n" + "Total puntos de esta ronda: " + puntuacionPartida, Snackbar.LENGTH_LONG);
+
+                // Cambiamos el color de fondo del snackbar.
+                View sbv = snack.getView();
+                sbv.setBackgroundColor(Color.parseColor("#9d000a"));
+
+                snack.show();
+            }
         }
     }
 
@@ -503,17 +524,18 @@ public class ListPrincipal extends AppCompatActivity {
                         pokeList.add(Pokemons.get(i));
                     }
                 }
-            } else {
-                String fav = "Fav";
-                for(int i = 0; i < Pokemons.size(); i++) {
-                    if(Pokemons.get(i).getFav() == fav) {
-                        pokeList.add(Pokemons.get(i));
-                    }
-                }
             }
         } else {
             pokeList = Pokemons;
         }
+        View parentLayout = findViewById(android.R.id.content);
+        Snackbar snack = Snackbar.make(parentLayout, "Filtro Aplicado", Snackbar.LENGTH_SHORT);
+
+        // Cambiamos el color de fondo del snackbar.
+        View sbv = snack.getView();
+        sbv.setBackgroundColor(Color.parseColor("#1cc61c"));
+
+        snack.show();
         return pokeList;
     }
 

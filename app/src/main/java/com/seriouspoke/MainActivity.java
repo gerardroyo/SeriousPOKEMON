@@ -1,5 +1,8 @@
 package com.seriouspoke;
 
+// Twitter: @RoshsKipo
+// Instagram: gerard_royo
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;

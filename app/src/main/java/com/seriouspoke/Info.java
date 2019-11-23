@@ -112,23 +112,16 @@ public class Info extends AppCompatActivity {
                 intent = new Intent(Intent.ACTION_SEND);
                 intent.setType("text/plain");
                 intent.putExtra(Intent.EXTRA_TEXT, "Nombre: " + _pokemon.getNombre() + "\n" +
-                        "Más info: https://pokemon.fandom.com/es/wiki/" + _pokemon.getNombre());
+                        "Habilidad/es: " + _pokemon.getHabilidad() + "\n" +
+                        "Hab.Oculta: " + _pokemon.getHabOculta() + "\n" +
+                        "Peso: " + _pokemon.getPeso() + "\n" +
+                        "Altura: " + _pokemon.getAltura() + "\n" +
+                        "Spawn Macho: " + _pokemon.getGeneroM() + "\n" +
+                        "Spawn Hembra: " + _pokemon.getGeneroF() + "\n" +
+                        "Habitat: " + _pokemon.getHabitat() + "\n" +
+                        "Más info de " + _pokemon.getNombre() + ": https://pokemon.fandom.com/es/wiki/" + _pokemon.getNombre());
 
                 startActivity(intent);
-                return true;
-            case R.id.fav:
-
-                _pokemon.setFav("Fav");
-
-                View parentLayout = findViewById(android.R.id.content);
-                Snackbar snack = Snackbar.make(parentLayout, _pokemon.getNombre() + " agregado a FAVORITOS", Snackbar.LENGTH_LONG);
-
-                // Cambiamos el color de fondo del snackbar.
-                View sbv = snack.getView();
-                sbv.setBackgroundColor(Color.parseColor("#1cc61c"));
-
-                snack.show();
-
                 return true;
         }
         return super.onOptionsItemSelected(item);
