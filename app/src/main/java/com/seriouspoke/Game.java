@@ -66,7 +66,7 @@ public class Game extends AppCompatActivity {
         btnSalir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                boolean salir = true;
+                int salir = 1;
                 salir(salir);
             }
 
@@ -78,20 +78,20 @@ public class Game extends AppCompatActivity {
             public void onClick(View v) {
                 confirmar();
             }
-
         });
-
     }
 
     public void confirmar(){
         String textUser;
         String nombrePoke;
+        int salir = 2;
+
 
         edtNombre = findViewById(R.id.edtNombre);
         textUser = edtNombre.getText().toString().toLowerCase();
         nombrePoke = _pokemon.get(pos).getNombre().toLowerCase();
 
-        if(textUser.equals(nombrePoke)) {
+         if(textUser.equals(nombrePoke)) {
             edtNombre.setText("");
             snackBarCorrecto();
             puntuacionActual++;
@@ -105,7 +105,7 @@ public class Game extends AppCompatActivity {
             snackBarEmpty();
 
         } else {
-            boolean salir = false;
+            salir = 0;
             salir(salir);
         }
     }
@@ -132,19 +132,19 @@ public class Game extends AppCompatActivity {
         snack.show();
     }
 
-    public void salir(boolean salir) {
-
+    public void salir(int salir) {
         Intent intent = new Intent();
         if(puntuacionMaxima < puntuacionActual) {
             puntuacionMaxima = puntuacionActual;
         }
         intent.putExtra("puntuacionMax", puntuacionMaxima);
         intent.putExtra("puntuacionPartida", puntuacionActual);
-        intent.putExtra("nbPokemonFailed", _pokemon.get(pos).getNombre());
+        if(pos <= 2){
+            intent.putExtra("nbPokemonFailed", _pokemon.get(pos).getNombre());
+        }
         intent.putExtra("salir", salir);
         setResult(RESULT_OK, intent);
         finish();
-
     }
 
     public void puntuacion(int puntuacionMaxima) {
@@ -155,13 +155,18 @@ public class Game extends AppCompatActivity {
     }
 
     public void setImg(ArrayList<cPokimon> pokemon) {
+        int salir = 2;
 
         ImageView img = (ImageView) findViewById(R.id.imageView);
-
+        if(pos <= 210) {
             String nombre = pokemon.get(pos).getNombre();
             String src = "@drawable/" + nombre;
             src = src.toLowerCase();
             img.setImageResource(getResources().getIdentifier(src,"drawable", getOpPackageName()));
+        } else {
+            salir(salir);
+        }
+
     }
 
 }

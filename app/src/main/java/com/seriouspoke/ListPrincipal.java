@@ -483,15 +483,15 @@ public class ListPrincipal extends AppCompatActivity {
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         int puntuacionPartida = 0;
         String nbPokemonFiled;
-        boolean salir;
+        int salir;
 
         if (requestCode == 12345 && resultCode == RESULT_OK) {
             puntuacionMax = data.getExtras().getInt("puntuacionMax");
             puntuacionPartida = data.getExtras().getInt("puntuacionPartida");
             nbPokemonFiled = data.getExtras().getString("nbPokemonFailed");
-            salir = data.getExtras().getBoolean("salir");
+            salir = data.getExtras().getInt("salir");
 
-            if(salir == true){
+            if(salir == 1){
 
                 View parentLayout = findViewById(android.R.id.content);
                 Snackbar snack = Snackbar.make(parentLayout, "Total puntos de esta ronda: " + puntuacionPartida, Snackbar.LENGTH_LONG);
@@ -501,13 +501,23 @@ public class ListPrincipal extends AppCompatActivity {
                 sbv.setBackgroundColor(Color.parseColor("#0CB7F2"));
 
                 snack.show();
-            } else {
+            } else if (salir == 0){
                 View parentLayout = findViewById(android.R.id.content);
                 Snackbar snack = Snackbar.make(parentLayout, "¡ERROR! El nombre correcto era: " + nbPokemonFiled + "\n" + "Total puntos de esta ronda: " + puntuacionPartida, Snackbar.LENGTH_LONG);
 
                 // Cambiamos el color de fondo del snackbar.
                 View sbv = snack.getView();
                 sbv.setBackgroundColor(Color.parseColor("#9d000a"));
+
+                snack.show();
+            } else {
+                View parentLayout = findViewById(android.R.id.content);
+                Snackbar snack = Snackbar.make(parentLayout, "¡VICTORIA! Completaste el juego" + "\n" +
+                        "Puntuación: " + puntuacionPartida, Snackbar.LENGTH_LONG);
+
+                // Cambiamos el color de fondo del snackbar.
+                View sbv = snack.getView();
+                sbv.setBackgroundColor(Color.parseColor("#1cc61c"));
 
                 snack.show();
             }
@@ -583,22 +593,8 @@ public class ListPrincipal extends AppCompatActivity {
 
                     intent.putExtra("pokemon", pokemon);
 
-                    startActivityForResult(intent, 1234);
+                    startActivity(intent);
                 }
-
-                //@Override
-                protected void onActivityResult(int requestCode, int resultCode, Intent data) {
-                    if (requestCode == 1234 && resultCode == RESULT_OK) {
-                        String fav = data.getExtras().getString("fav");
-                        pokemon.setFav(fav);
-                        for(int i = 0; i < Pokemons.size(); i++) {
-                            if(Pokemons.get(i).getNombre().equals(pokemon.getNombre())) {
-                                /*Pokemons.set(i).setFav(fav);*/
-                            }
-                        }
-                    }
-                }
-
             });
 
             return (item);
