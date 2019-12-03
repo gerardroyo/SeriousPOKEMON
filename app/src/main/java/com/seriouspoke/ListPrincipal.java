@@ -29,7 +29,6 @@ public class ListPrincipal extends AppCompatActivity {
 
     private int puntuacionMax = 0;
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -749,5 +748,20 @@ public class ListPrincipal extends AppCompatActivity {
                     tv.setBackgroundColor(Color.parseColor("#FFFFFFFF"));
             }
         }
+    }
+    @Override
+    protected void onSaveInstanceState(Bundle guardarEstado) {
+        ListPrincipal.super.onSaveInstanceState(guardarEstado);
+
+        guardarEstado.putInt("puntMax", puntuacionMax);
+
+    }
+
+    @Override
+    protected void onRestoreInstanceState(Bundle recEstado) {
+        ListPrincipal.super.onSaveInstanceState(recEstado);
+
+        puntuacionMax = recEstado.getInt("puntMax");
+
     }
 }
